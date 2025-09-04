@@ -1,5 +1,18 @@
-def puissance(a,b):
- if not type(a) is int:
-  raise TypeError ("erreur")
- else:
-  return(a**b)
+def puissance(a, b):
+    if not isinstance(a, int):
+        raise TypeError("Erreur : 'a' doit être un entier")
+    if not isinstance(b, int):
+        raise TypeError("Erreur : 'b' doit être un entier")
+
+    result = 1
+
+    # Gestion des puissances négatives
+    if b < 0:
+        for _ in range(-b):
+            result *= a
+        return 1 / result
+    else:
+        for _ in range(b):
+            result *= a
+        return result
+
