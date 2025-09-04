@@ -4,14 +4,6 @@ def puissance(a, b):
     if not isinstance(b, int):
         raise TypeError("Erreur : 'b' doit être un entier")
 
-def test_exc_1():
-    with pytest.raises(Exception):
-        puissance(0,-1)
-
-def test_exc_2():
-    with pytest.raises(Exception):
-        puissance(0,b)
-
     result = 1
 
     if b < 0:
