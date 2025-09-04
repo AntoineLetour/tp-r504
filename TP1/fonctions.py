@@ -6,7 +6,6 @@ def puissance(a, b):
 
     result = 1
 
-    # Gestion des puissances négatives
     if b < 0:
         for _ in range(-b):
             result *= a
