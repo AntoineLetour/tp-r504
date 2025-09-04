@@ -4,7 +4,7 @@ def puissance(a, b):
     if not isinstance(b, int):
         raise TypeError("Erreur : 'b' doit être un entier")
     if a == 0 and b < 0:
-    raise Exception ("pas possible si = 0 ou <0)
+    raise Exception
 
     result = 1
 
