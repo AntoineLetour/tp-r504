@@ -8,7 +8,7 @@ def test_exc_1():
     with pytest.raises(Exception):
         puissance(0,-1)
 
-def test_exc_1():
+def test_exc_2():
     with pytest.raises(Exception):
         puissance(0,b)
 
