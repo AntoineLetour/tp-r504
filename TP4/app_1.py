@@ -5,31 +5,32 @@ app = Flask(__name__)
  
 # MySQL configuration
 db_config = {
-    'host': 'run_mysql.sh',
+    'host': 'tp4-sql',
     'user': 'root',
     'password': 'foo',
-    'database': 'data.sql'
+    'database': 'demosql'
 }
-
-# Initialize MySQL connection
-conn = mysql.connector.connect(**db_config)
-cursor = conn.cursor() 
-
-
 @app.route('/')
 def index():
-    # Sample query
-    query = "SELECT * FROM myTable"
-    cursor.execute(query)
-    data = cursor.fetchall()
+    try:
+        # Connexion MySQL à chaque requête
+        conn = mysql.connector.connect(**db_config)
+        cursor = conn.cursor()
+        
+        query = "SELECT * FROM myTable"
+        cursor.execute(query)
+        data = cursor.fetchall()
     
-    # Close the cursor and connection
-    cursor.close()
-    conn.close()
+    except Error as e:
+        print("Erreur MySQL :", e)
+        return "Erreur interne", 500
+
+    finally:
+        cursor.close()
+        conn.close()
     
     return render_template('index.html', data=data)
 
 if __name__ == '__main__':
-    app.run(debug=True)
-    
+    app.run(debug=True, host='0.0.0.0')  # important pour Docker
 
