@@ -20,10 +20,6 @@ def index():
         query = "SELECT * FROM myTable"
         cursor.execute(query)
         data = cursor.fetchall()
-    
-    except Error as e:
-        print("Erreur MySQL :", e)
-        return "Erreur interne", 500
 
     finally:
         cursor.close()
