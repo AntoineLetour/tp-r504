@@ -1,0 +1,5 @@
+ue se passe-t-il si on lance le client sans que le serveur ne soit actif : 
+Rien du tout 
+Q2.2 - Quel est le numéro de port utilisé :
+le 1024
+
