@@ -1,0 +1,12 @@
+for ((i=0;i<200;i++));
+do
+	a=$(curl http://localhost:83);
+	echo "$a"
+	if [ "$a" = "<h1>Hello 1</h1>" ];
+	then
+		c1=$((c1+1));
+	fi;
+	if [ "$a" = "<h1>Hello 2</h1>" ]; then c2=$((c2+1)); fi;
+done;
+
+echo "Hello 1=$c1 Hello 2=$c2" \
